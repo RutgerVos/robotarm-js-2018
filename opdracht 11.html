@@ -11,7 +11,25 @@
             robotArm.loadLevel("exercise 11");
             
             // Jou instructies volgen hier
-			while
+			for(i=0; i<=8; i++){
+			robotArm.moveRight();
+			}
+			
+			for(a=0; a<=8; a++){
+			robotArm.grab();
+			color = robotArm.scan();
+			if(color == "white"){
+			robotArm.moveRight();
+			robotArm.drop();
+			for(i=0; i<=1; i++){
+			robotArm.moveLeft();
+			}
+			}
+			else{
+			robotArm.drop();
+			robotArm.moveLeft();
+			}
+			}
 					
 					
 					
