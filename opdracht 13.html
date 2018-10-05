@@ -8,28 +8,31 @@
             var robotArm = new RobotArm(canvas);
             robotArm.speed= 500;
             // Het level inladen
-            robotArm.loadLevel("exercise 11");
+            robotArm.randomLevel( 1, 8);
             
             // Jou instructies volgen hier
-			for(i=0; i<=8; i++){
-				robotArm.moveRight();
+				var color;
+				var Blocks_Left_right = 9;
+				var Blocks_Right_Left = 9;
+			for(a=0; a<=5; a++){
+					robotArm.grab();
+					color = robotArm.scan();
+				if(color == null){
+					a = a +6;	
+				}
+				for(b=1; b<=Blocks_Left_right; b++){
+					robotArm.moveRight();
+				}
+					robotArm.drop();
+				for(rightL =1; rightL<=Blocks_Right_Left; rightL++){
+					robotArm.moveLeft();
+				}
+				Blocks_Left_right = Blocks_Left_right -1;
+			    Blocks_Right_Left = Blocks_Right_Left -1;
 			}
-			
-			for(a=0; a<=8; a++){
-				robotArm.grab();
-				color = robotArm.scan();
-			if(color == "white"){
-				robotArm.moveRight();
-				robotArm.drop();
-			for(i=0; i<=1; i++){
-				robotArm.moveLeft();
-			}
-			}
-			else{
-				robotArm.drop();
-				robotArm.moveLeft();
-			}
-			}
+					
+					
+				
 					
 					
 					
